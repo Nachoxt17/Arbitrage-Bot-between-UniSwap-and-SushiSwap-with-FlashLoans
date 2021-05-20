@@ -44,18 +44,18 @@ contract EthSwap {
         IERC20(fromToken).transferFrom(msg.sender, address(this), _amount);
 
         //+-We issue a notice that the fromTokens have been Deposited:_
-        emit TokensDeposited(msg.sender, address(fromToken), _amount);
+        emit TokensDeposited(msg.sender, fromToken, _amount);
     }
 
     function  withdraw(uint256 _amount) public {//+-En esta función El Usuario debería poder retirar SOLO una Cantidad <= a Cantidad de toTokens que compró. 
         //+-Checks that the S.C. actually has that amount of Tokens Available:_
         require(IERC20(toToken).balanceOf(address(this)) >= _amount);
 
-        //+-Checks that the User actually bought and is Owner of those toTokens:_
+        //+-Checks that the User actually bought and is Owner of that amount of toTokens:_
         require(Buyers[msg.sender] <= _amount);
 
         //+-We issue a notice that the toTokens have been Withdrawn:_
-        emit TokensWithdrawn(msg.sender, address(toToken), _amount);
+        emit TokensWithdrawn(msg.sender, toToken, _amount);
     }
 
     /**function buyTokens(uint256 _amount) public payable {//+-¿Cómo sabemos a qué precio vender el Token?
@@ -64,12 +64,12 @@ contract EthSwap {
         //uint256 tokenAmount = msg.value * rate;
 
         //+-Check the Liquidity Availabe in the Exchange and if it is enough to carry out the Transaction:_
-        require(toToken.balanceOf(address(this)) >= /**tokenAmount*/ //_amount); //+-"address(this)" is the Smart Contract Address.
+        require(IERC20(toToken).balanceOf(address(this)) >= /**tokenAmount*/ //_amount); //+-"address(this)" is the Smart Contract Address.
 
         //+-Transfer Tokens to the user:_
-        //toToken.transfer(msg.sender, /**tokenAmount*/_amount);
+        //IERC20(toToken).transfer(msg.sender, /**tokenAmount*/_amount);
 
         //+-Emit an Event:_
-        //emit TokenPurchased(msg.sender, address(/**token*/toToken), /**tokenAmount*/_amount/**, rate*/);
+        //emit TokenPurchased(msg.sender, toToken, /**tokenAmount*/_amount/**, rate*/);
     //}
 }
