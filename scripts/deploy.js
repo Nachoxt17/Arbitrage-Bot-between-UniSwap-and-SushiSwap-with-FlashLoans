@@ -3,10 +3,12 @@ async function main() {
 
   console.log("Deploying contracts with the account:", deployer.address);
 
-  const EthSwap = await ethers.getContractFactory("EthSwap");
-  const ethSwap = await EthSwap.deploy();
+  const BaseSmartContract = await ethers.getContractFactory(
+    "BaseSmartContract"
+  );
+  const baseSmartContract = await BaseSmartContract.deploy();
 
-  console.log("EthSwap Smart Contract Address:", ethSwap.address);
+  console.log("BaseSmartContract Contract Address:", baseSmartContract.address);
 }
 
 main()

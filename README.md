@@ -1,6 +1,6 @@
-# Ecercise-5.1-Swap-Smart-Contract
+# Base-Smart-Contract
 
-+-Users can Connect their Wallets and Swap between two ERC-20 Tokens.
++-Users can Connect their Wallets and **Write Here What Users can do in your D.A.P.P.**.
 
 ## +-To run the Project:\_
 
