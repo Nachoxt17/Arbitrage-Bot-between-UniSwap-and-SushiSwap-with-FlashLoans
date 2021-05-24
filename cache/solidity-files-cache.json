@@ -2,11 +2,11 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Users\\Public\\Documents\\DeFi-Wonderland\\Cryptocurrency-Swap-Smart-Contract\\contracts\\EthSwap.sol": {
-      "lastModificationDate": 1621533163855,
-      "contentHash": "c1e0df3eb21ccdc5812a3c5c895cb79c",
+      "lastModificationDate": 1621896832714,
+      "contentHash": "4ba77802752516a585ce1bbba515ed4b",
       "sourceName": "contracts/EthSwap.sol",
       "solcConfig": {
-        "version": "0.8.4",
+        "version": "0.6.2",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -28,22 +28,25 @@
         }
       },
       "imports": [
+        "hardhat/console.sol",
         "@openzeppelin/contracts/token/ERC20/IERC20.sol",
-        "@openzeppelin/contracts/token/ERC20/ERC20.sol"
+        "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router01.sol",
+        "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol"
       ],
       "versionPragmas": [
-        "^0.8.4"
+        "^0.6.2"
       ],
       "artifacts": [
-        "EthSwap"
+        "EthSwap",
+        "SafeMath"
       ]
     },
     "C:\\Users\\Public\\Documents\\DeFi-Wonderland\\Cryptocurrency-Swap-Smart-Contract\\node_modules\\@openzeppelin\\contracts\\token\\ERC20\\IERC20.sol": {
-      "lastModificationDate": 1621462846358,
-      "contentHash": "c7492a9ab60ba083d345f893d5e0f33c",
+      "lastModificationDate": 1621556359016,
+      "contentHash": "9ce84db457c30cf9daf993e6fde9e9b8",
       "sourceName": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
       "solcConfig": {
-        "version": "0.8.4",
+        "version": "0.6.2",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -66,7 +69,7 @@
       },
       "imports": [],
       "versionPragmas": [
-        "^0.8.0"
+        "^0.6.2"
       ],
       "artifacts": [
         "IERC20"
@@ -141,6 +144,110 @@
       ],
       "artifacts": [
         "Context"
+      ]
+    },
+    "C:\\Users\\Public\\Documents\\DeFi-Wonderland\\Cryptocurrency-Swap-Smart-Contract\\node_modules\\hardhat\\console.sol": {
+      "lastModificationDate": 1621462863141,
+      "contentHash": "cc4777addd464ea56fa35b1c45df0591",
+      "sourceName": "hardhat/console.sol",
+      "solcConfig": {
+        "version": "0.6.2",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.4.22 <0.9.0"
+      ],
+      "artifacts": [
+        "console"
+      ]
+    },
+    "C:\\Users\\Public\\Documents\\DeFi-Wonderland\\Cryptocurrency-Swap-Smart-Contract\\node_modules\\@uniswap\\v2-periphery\\contracts\\interfaces\\IUniswapV2Router01.sol": {
+      "lastModificationDate": 1621462859271,
+      "contentHash": "95d8729b2c698dc663322167b3c085fe",
+      "sourceName": "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router01.sol",
+      "solcConfig": {
+        "version": "0.6.2",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.6.2"
+      ],
+      "artifacts": [
+        "IUniswapV2Router01"
+      ]
+    },
+    "C:\\Users\\Public\\Documents\\DeFi-Wonderland\\Cryptocurrency-Swap-Smart-Contract\\node_modules\\@uniswap\\v2-periphery\\contracts\\interfaces\\IUniswapV2Router02.sol": {
+      "lastModificationDate": 1621462859284,
+      "contentHash": "3fd36426274a5b35f7e702f87ba08a8e",
+      "sourceName": "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol",
+      "solcConfig": {
+        "version": "0.6.2",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IUniswapV2Router01.sol"
+      ],
+      "versionPragmas": [
+        ">=0.6.2"
+      ],
+      "artifacts": [
+        "IUniswapV2Router02"
       ]
     }
   }

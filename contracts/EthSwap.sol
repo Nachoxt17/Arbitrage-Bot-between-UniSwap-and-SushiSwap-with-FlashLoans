@@ -91,6 +91,7 @@ contract EthSwap {
 
     string public name = "EthSwap Instant Exchange";
     address public exchangeSmartContract;
+    address private constant UNISWAP_V2_ROUTER = 0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D;
     address public fromToken;
     address public toToken;
     //+-Mapping to take account of the Buyers who have already purchased toTokens and are Waiting to Withdraw the from the S.C.:_
@@ -108,7 +109,7 @@ contract EthSwap {
         uint amount
     );
 
-    constructor(address _exchangeSmartContract) {
+    constructor(address _exchangeSmartContract) public {
         exchangeSmartContract = _exchangeSmartContract;
     }
 
@@ -128,16 +129,16 @@ contract EthSwap {
         IERC20(fromToken).transferFrom(msg.sender, address(this), _amount);
 
         //+-Now that our contract owns fromTokens, we need to approve the UniSwapRouter to Withdraw them:_
-        IERC20(fromToken).approve(address(IUniswapV2Router02), _amount);
+        IERC20(fromToken).approve(UNISWAP_V2_ROUTER, _amount);
 
         //+-We issue a notice that the fromTokens have been Deposited:_
         emit TokensDeposited(msg.sender, fromToken, _amount);
     }
 
-    function swap(uint256 _fromTokensAmount, uint256 _toTokensAmount) public {
+    function swap(uint256 _fromTokensAmount) public {
         //+-Tenga una función swap(uint256 _amount) que use los provided fromTokens previamente Swappearlos por toTokens en UniSwapV2.
         //+-We check that the UniSwapRouter actually is able to Withdraw the fromTokens for performing the Swap:_
-        require(IERC20(fromToken).approve(address(IUniswapV2Router02), _fromTokensAmount));
+        require(IERC20(fromToken).approve(UNISWAP_V2_ROUTER, _fromTokensAmount));
 
         //+-"path" is a List of Token Addresses that we want this Trade to Happen:_
         address[] memory path;
@@ -147,11 +148,11 @@ contract EthSwap {
         path[1] = toToken;
 
         //+-The S.C. performs the Swap with UniSwapV2Router:_
-        IUniswapV2Router02(address(IUniswapV2Router02)).swapExactTokensForTokens(_fromTokensAmount, _toTokensAmount, path, address(this), block.timestamp);
+        IUniswapV2Router01(UNISWAP_V2_ROUTER).swapExactTokensForTokens(_fromTokensAmount, 0, path, address(this), block.timestamp);
 
         //+-If the Swap with UniSwapV2Router was Successful, when the "toTokens" are Deposited in the Exchange S.C. we assign that amount of "toTokens" to the Buyer:_
-        require(IUniswapV2Router02(address(IUniswapV2Router02)).swapExactTokensForTokens(_fromTokensAmount, _toTokensAmount, path, address(this), block.timestamp));
-        Buyers[msg.sender] = _toTokensAmount;
+        //require(IUniswapV2Router01(address(IUniswapV2Router01)).swapExactTokensForTokens(_fromTokensAmount, 0, path, address(this), block.timestamp));
+        //Buyers[msg.sender] = _toTokensAmount;
     }
 
     function  withdraw(uint256 _amount) public {//+-En esta función El Usuario debería poder retirar SOLO una Cantidad <= a Cantidad de toTokens que compró. 
