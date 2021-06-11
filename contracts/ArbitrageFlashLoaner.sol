@@ -7,7 +7,7 @@ import "./interfaces/IUniswapV2Pair.sol";
 import "./interfaces/IUniswapV2Factory.sol";
 import "./interfaces/IERC20.sol";
 
-contract Arbitrage {
+contract ArbitrageFlashLoaner {
     //+-We connect the S.C. with the UniSwap(Factory) tools and Info:_
     address public factory;
     uint256 constant deadline = 10 days;
@@ -16,7 +16,6 @@ contract Arbitrage {
 
     constructor(
         address _factory,
-        address _uniRouter,
         address _sushiRouter
     ) public {
         factory = _factory;

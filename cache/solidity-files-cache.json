@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "D:\\Personal_Programming_Projects\\PASSIVE-INCOME\\Arbitrage-Bot-Between-UniSwap-and-SushiSwap-with-FlashLoans-(IN DEVELOPMENT)\\contracts\\ArbitrageFlashLoaner.sol": {
-      "lastModificationDate": 1623378579021,
-      "contentHash": "ba9cc016b2bf114d596dd4b05862e857",
+      "lastModificationDate": 1623422736258,
+      "contentHash": "2e255025cab62054b698a9c5f2227a85",
       "sourceName": "contracts/ArbitrageFlashLoaner.sol",
       "solcConfig": {
         "version": "0.6.6",
@@ -38,7 +38,7 @@
         "^0.6.6"
       ],
       "artifacts": [
-        "Arbitrage"
+        "ArbitrageFlashLoaner"
       ]
     },
     "D:\\Personal_Programming_Projects\\PASSIVE-INCOME\\Arbitrage-Bot-Between-UniSwap-and-SushiSwap-with-FlashLoans-(IN DEVELOPMENT)\\contracts\\UniswapV2Library.sol": {
