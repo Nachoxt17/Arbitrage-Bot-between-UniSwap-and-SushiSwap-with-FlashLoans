@@ -8,7 +8,10 @@ async function main() {
   );
   const arbitrageFlashLoaner = await ArbitrageFlashLoaner.deploy();
 
-  console.log("BaseSmartContract Contract Address:", arbitrageFlashLoaner.address);
+  console.log(
+    "ArbitrageFlashLoaner Contract Address:",
+    arbitrageFlashLoaner.address
+  );
 }
 
 main()
