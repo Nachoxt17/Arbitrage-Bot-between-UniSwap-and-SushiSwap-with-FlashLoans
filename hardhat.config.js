@@ -12,8 +12,6 @@ const ALCHEMY_API_KEY = "rfF45aXtyItXE0ia89yfK9HgxaYKuE_O";
 // Be aware of NEVER putting real Ether into testing accounts
 const ROPSTEN_PRIVATE_KEY = "ec20f200aa43f462b258a8e1598a34e551232ab57b846323a49f887b7c813c66";
 
-
-
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
 task("accounts", "Prints the list of accounts", async () => {
