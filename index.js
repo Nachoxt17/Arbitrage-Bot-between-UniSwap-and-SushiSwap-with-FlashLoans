@@ -12,14 +12,17 @@ const UniswapV2Pair = require('./abis/IUniswapV2Pair.json');
 const UniswapV2Factory = require('./abis/IUniswapV2Factory.json');
 
 //+-Use your own Infura node in production:_
-const provider = new ethers.providers.InfuraProvider('mainnet', process.env.INFURA_KEY);
+const provider = new ethers.providers.InfuraProvider(/**'mainnet'*/'ropsten', process.env.INFURA_KEY);
 
 const wallet = new ethers.Wallet(privateKey, provider);
 
-const ETH_TRADE = 10;
-const DAI_TRADE = 3500;
+const ETH_AMOUNT = 0;
+const DAI_AMOUNT = 1000;
 
 const runBot = async () => {
+  /**+-Ethereum MainNet & Ropsten TestNet D.EX.s Factory Addresses:_
+  +-UniSwap Factory Address = '0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f'(Is the Same in Both MainNet and TestNet).
+  +-SushiSwap Factory Address = '0xC0AEe478e3658e2610c5F7A4A2E1777cE9e4f2Ac'(Is the Same in Both MainNet and TestNet).*/
   const sushiFactory = new ethers.Contract(
     '0xC0AEe478e3658e2610c5F7A4A2E1777cE9e4f2Ac',
     UniswapV2Factory.abi, wallet,
@@ -28,8 +31,13 @@ const runBot = async () => {
     '0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f',
     UniswapV2Factory.abi, wallet,
   );
-  const daiAddress = '0x6b175474e89094c44da98b954eedeac495271d0f';
-  const wethAddress = '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2';
+  //+-Ethereum MainNet Token Addresses:_
+  //const daiAddress = '0x6b175474e89094c44da98b954eedeac495271d0f';
+  //const wethAddress = '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2';
+
+  //+-Ethereum Ropsten TestNet Token Addresses:_
+  const daiAddress = '0xf80a32a835f79d7787e8a8ee5721d0feafd78108';
+  const wethAddress = '0xf70949bc9b52deffcda63b0d15608d601e3a7c49';
 
   let sushiEthDai;
   let uniswapEthDai;
@@ -70,7 +78,7 @@ const runBot = async () => {
       const spread = Math.abs((priceSushiswap / priceUniswap - 1) * 100) - 0.6;
 
       const shouldTrade = spread > (
-        (shouldStartEth ? ETH_TRADE : DAI_TRADE)
+        (shouldStartEth ? ETH_AMOUNT : DAI_AMOUNT)
          / Number(
            ethers.utils.formatEther(uniswapReserves[shouldStartEth ? 1 : 0]),
          ));
@@ -84,8 +92,8 @@ const runBot = async () => {
       if (!shouldTrade) return;
 
       const gasLimit = await sushiEthDai.estimateGas.swap(
-        !shouldStartEth ? DAI_TRADE : 0,
-        shouldStartEth ? ETH_TRADE : 0,
+        !shouldStartEth ? DAI_AMOUNT : 0,
+        shouldStartEth ? ETH_AMOUNT : 0,
         flashLoanerAddress,
         ethers.utils.toUtf8Bytes('1'),
       );
@@ -98,8 +106,8 @@ const runBot = async () => {
       but any profit margin may be eaten up by the cost of gas. An important check of our program is to make 
       sure our gas costs don’t eat into our spread:_*/
       const shouldSendTx = shouldStartEth
-        ? (gasCost / ETH_TRADE) < spread
-        : (gasCost / (DAI_TRADE / priceUniswap)) < spread;
+        ? (gasCost / ETH_AMOUNT) < spread
+        : (gasCost / (DAI_AMOUNT / priceUniswap)) < spread;
 
       // don't trade if gasCost is higher than the spread
       if (!shouldSendTx) return;
@@ -109,18 +117,18 @@ const runBot = async () => {
         gasLimit,
       };
       const tx = await sushiEthDai.swap(
-        !shouldStartEth ? DAI_TRADE : 0,
-        shouldStartEth ? ETH_TRADE : 0,
+        !shouldStartEth ? DAI_AMOUNT : 0,
+        shouldStartEth ? ETH_AMOUNT : 0,
         flashLoanerAddress,
         ethers.utils.toUtf8Bytes('1'), options,
       );
 
-      console.log('ARBITRAGE EXECUTED! PENDING TX TO BE MINED');
+      console.log('ARBITRAGE EXECUTED! PENDING Transaction TO BE MINED');
       console.log(tx);
 
       await tx.wait();
 
-      console.log('SUCCESS! TX MINED');
+      console.log('SUCCESS! Transaction MINED');
     } catch (err) {
       console.error(err);
     }

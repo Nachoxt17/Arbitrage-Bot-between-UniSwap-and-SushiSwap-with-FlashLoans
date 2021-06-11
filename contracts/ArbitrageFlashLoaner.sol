@@ -24,8 +24,8 @@ contract ArbitrageFlashLoaner {
 
     //+-The Trader has to monitor Price Differences between UniSwap and SushiSwap and when finds one, Call This Function:_
     function startArbitrage(
-        address token0, /**+-Asset Token S.C. Address. Ex:_ WBTC.*/
-        address token1, /**+-StableCoin Token S.C. Address. Ex:_ XCHF.*/
+        address token0, /**+-Asset Token S.Contract Address. Ex:_ WBTC.*/
+        address token1, /**+-StableCoin Token S.Contract Address. Ex:_ DAI.*/
         uint256 amount0, /**+-ZERO Amount of the Asset "token0" that we want to use in the Transaction.*/
         uint256 amount1 /**+-Amount of Money in "token1" that we are going to borrow with a FlashLoan.*/
     ) external {

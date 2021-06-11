@@ -1,5 +1,7 @@
 +-YOU NEED TO MODIFICATE THE "index.js" FILE IN A WAY THAT IT MONITORS THE DIFFERENT PRICES OF THE SAME TOKENS IN DIFFERENT DECENTRALIZED EXCHANGES SO IT TRIGGERS THE "ArbitrageFlashLoaner.sol" S.C. AND PERFORMS THE ARBITRAGE TRADE AUTOMATICALLY.
 
++-For Testing the Successful working of Both the "index.js" Bot and the S.C. you should Test them in the Ropsten Ethereum TestNet, and set both your Infura and Alchemy A.P.I.s keys in that way.
+
 +-Arbitrage Tutorials:\_ https://blog.infura.io/build-a-flash-loan-arbitrage-bot-on-infura-part-i/
 https://blog.infura.io/build-a-flash-loan-arbitrage-bot-on-infura-part-ii/
 
@@ -12,17 +14,17 @@ dependencies:
 npm install
 ```
 
-+-(2-A)-Once installed, open a 1st Terminal and let's run Hardhat's testing network:
++-(2-A)-Once installed, open a 1st Terminal and let's run Ropsten Ethereum Test Network(https://hardhat.org/tutorial/deploying-to-a-live-network.html):_
 
 ```sh
-npx hardhat node
+npx hardhat run scripts/deploy.js --network ropsten
 ```
 
 +-(2-B)-Or you can also Test your Project Cloning the Ethereum Main Network in your Local Hardhat Node:\_
 https://hardhat.org/guides/mainnet-forking.html
 
 ```sh
-npx hardhat node --fork https://eth-mainnet.alchemyapi.io/v2/<key> --fork-block-number 12610259
+npx hardhat node
 ```
 
 +-(3)-Then, on a 2nd Terminal, go to the repository's root folder and run this to
