@@ -21,6 +21,7 @@ const wallet = new ethers.Wallet(privateKey, provider);
 beginning Do not risk more than € 1000.:_*/
 //+-If the Trade Starts with DAI I want to do it with *number* DAI:_
 const DAI_AMOUNT = 500;
+console.log("DAI Amount:_", DAI_AMOUNT)
 
 const runBot = async () => {
   /**+-Ethereum MainNet & Ropsten TestNet D.EX.s Factory Addresses:_
@@ -83,6 +84,7 @@ const runBot = async () => {
       /**+-If the Trade Starts with ETH, It will use ETH worth = DAI_AMOUNT:_
       (If "const DAI_AMOUNT = 1000;", it will use 1000 DAI in ETH):_*/
       const ETH_AMOUNT = DAI_AMOUNT / priceUniswap;
+      console.log("ETH Amount:_", ETH_AMOUNT)
 
       const shouldTrade = spread > (
         (shouldStartEth ? ETH_AMOUNT : DAI_AMOUNT)
