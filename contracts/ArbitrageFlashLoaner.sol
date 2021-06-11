@@ -54,7 +54,7 @@ contract ArbitrageFlashLoaner {
         //+-Ammount of Token that we borrowed:_
         uint256 amountToken = _amount0 == 0 ? _amount1 : _amount0;
 
-        //+-Addresses pf the 2 Tokens in the Liquidity Pool of UniSwap:_
+        //+-Addresses of the 2 Tokens in the Liquidity Pool of UniSwap:_
         address token0 = IUniswapV2Pair(msg.sender).token0();
         address token1 = IUniswapV2Pair(msg.sender).token1();
 

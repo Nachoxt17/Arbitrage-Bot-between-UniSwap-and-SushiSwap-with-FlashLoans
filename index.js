@@ -16,8 +16,11 @@ const provider = new ethers.providers.InfuraProvider(/**'mainnet'*/'ropsten', pr
 
 const wallet = new ethers.Wallet(privateKey, provider);
 
-const ETH_AMOUNT = 0;
-const DAI_AMOUNT = 1000;
+/**+-With what amount of each Token would you like to carry out the Arbitrage if
+ it is convenient to start with one or the other?.RECOMMENDATION:_ At least at the
+beginning Do not risk more than € 1000.:_*/
+//+-If the Trade Starts with DAI I want to do it with *number* DAI:_
+const DAI_AMOUNT = 500;
 
 const runBot = async () => {
   /**+-Ethereum MainNet & Ropsten TestNet D.EX.s Factory Addresses:_
@@ -76,6 +79,10 @@ const runBot = async () => {
 
       const shouldStartEth = priceUniswap < priceSushiswap;
       const spread = Math.abs((priceSushiswap / priceUniswap - 1) * 100) - 0.6;
+
+      /**+-If the Trade Starts with ETH, It will use ETH worth = DAI_AMOUNT:_
+      (If "const DAI_AMOUNT = 1000;", it will use 1000 DAI in ETH):_*/
+      const ETH_AMOUNT = DAI_AMOUNT / priceUniswap;
 
       const shouldTrade = spread > (
         (shouldStartEth ? ETH_AMOUNT : DAI_AMOUNT)
