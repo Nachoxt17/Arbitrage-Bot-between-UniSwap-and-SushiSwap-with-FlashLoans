@@ -3,12 +3,12 @@ async function main() {
 
   console.log("Deploying contracts with the account:", deployer.address);
 
-  const BaseSmartContract = await ethers.getContractFactory(
-    "BaseSmartContract"
+  const ArbitrageFlashLoaner = await ethers.getContractFactory(
+    "ArbitrageFlashLoaner"
   );
-  const baseSmartContract = await BaseSmartContract.deploy();
+  const arbitrageFlashLoaner = await ArbitrageFlashLoaner.deploy();
 
-  console.log("BaseSmartContract Contract Address:", baseSmartContract.address);
+  console.log("BaseSmartContract Contract Address:", arbitrageFlashLoaner.address);
 }
 
 main()

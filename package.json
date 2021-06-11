@@ -1,7 +1,7 @@
 {
-  "name": "eth-cryptocurrencies-exchange",
+  "name": "arbitrage-bot-between-uniswap-and-sushiswap-with-flashloans",
   "version": "0.1.0",
-  "description": "An Instant ERC-20 Cryptocurrencies Exchange",
+  "description": "Arbitrage-Bot-between-UniSwap-and-SushiSwap-with-FlashLoans",
   "author": "ignacioceaglio@protonmail.com",
   "keywords": [
     "ethereum",
@@ -11,46 +11,32 @@
     "solidity",
     "hardhat"
   ],
-  "dependencies": {
-    "babel-polyfill": "6.26.0",
-    "babel-preset-env": "1.7.0",
-    "babel-preset-es2015": "6.24.1",
-    "babel-preset-stage-2": "6.24.1",
-    "babel-preset-stage-3": "6.24.1",
-    "babel-register": "6.26.0",
-    "chai": "4.2.0",
-    "chai-as-promised": "7.1.1",
-    "chai-bignumber": "3.0.0"
+  "engines": {
+    "node": "10.x"
   },
+  "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ethers": "^5.0.12"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "2.0.2",
     "@nomiclabs/hardhat-etherscan": "2.1.1",
     "@nomiclabs/hardhat-waffle": "2.0.1",
     "@openzeppelin/contracts": "4.0.0",
-    "@types/chai": "4.2.16",
-    "@types/chai-as-promised": "7.1.3",
     "ethereum-waffle": "3.3.0",
     "ethers": "5.1.3",
-    "gh-pages": "^2.2.0",
-    "hardhat": "2.2.1",
     "hardhat-gas-reporter": "1.0.4",
     "hardhat-preprocessor": "0.1.3",
+    "hardhat": "*",
     "prettier": "^2.2.1",
     "prettier-plugin-solidity": "^1.0.0-beta.2"
-  }
+  },
+  "license": "MIT"
 }

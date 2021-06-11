@@ -1,12 +1,51 @@
-# Base-Smart-Contract
++-YOU NEED TO MODIFICATE THE "index.js" FILE IN A WAY THAT IT MONITORS THE DIFFERENT PRICES OF THE SAME TOKENS IN DIFFERENT DECENTRALIZED EXCHANGES SO IT TRIGGERS THE "ArbitrageFlashLoaner.sol" S.C. AND PERFORMS THE ARBITRAGE TRADE AUTOMATICALLY.
 
-+-Users can Connect their Wallets and **Write Here What Users can do in your D.A.P.P.**.
++-Arbitrage Tutorials:\_ https://blog.infura.io/build-a-flash-loan-arbitrage-bot-on-infura-part-i/
+https://blog.infura.io/build-a-flash-loan-arbitrage-bot-on-infura-part-ii/
 
-## +-To run the Project:\_
+## +-Quick Project start:\_
 
-+-To Deploy de Smart Contract and the Front-End:\_
-+-(1)-Open a 1st Terminal and run "npx hardhat compile".
-+-(2)-In the 1st Terminal then run "npx hardhat node".
-+-(3)-Open a 2nd Terminal and run "npx hardhat run scripts/deploy.js --network localhost".
++-(1)-The first things you need to do are cloning this repository and installing its
+dependencies:
 
-## +-To Test:\_
+```sh
+npm install
+```
+
++-(2-A)-Once installed, open a 1st Terminal and let's run Hardhat's testing network:
+
+```sh
+npx hardhat node
+```
+
++-(2-B)-Or you can also Test your Project Cloning the Ethereum Main Network in your Local Hardhat Node:\_
+https://hardhat.org/guides/mainnet-forking.html
+
+```sh
+npx hardhat node --fork https://eth-mainnet.alchemyapi.io/v2/<key> --fork-block-number 12610259
+```
+
++-(3)-Then, on a 2nd Terminal, go to the repository's root folder and run this to
+deploy your contract:
+
+```sh
+npx hardhat run scripts/deploy.js --network localhost
+```
+
+> Note: There's [an issue in `ganache-core`](https://github.com/trufflesuite/ganache-core/issues/650) that can make the `npm install` step fail.
+>
+> If you see `npm ERR! code ENOLOCAL`, try running `npm ci` instead of `npm install`.
+
+Open [http://localhost:3000/](http://localhost:3000/) to see your Dapp. You will
+need to have [Metamask](https://metamask.io) installed and listening to
+`localhost 8545`.
+
+## User Guide:\_
+
+You can find detailed instructions on using this repository and many tips in [its documentation](https://hardhat.org/tutorial).
+
+- [Setting up the environment](https://hardhat.org/tutorial/setting-up-the-environment.html)
+- [Testing with Hardhat, Mocha and Waffle](https://hardhat.org/tutorial/testing-contracts.html)
+- [Hardhat's full documentation](https://hardhat.org/getting-started/)
+
+For a complete introduction to Hardhat, refer to [this guide](https://hardhat.org/getting-started/#overview).
