@@ -3,7 +3,7 @@ require("@nomiclabs/hardhat-etherscan");
 
 // Go to https://www.alchemyapi.io, sign up, create
 // a new App in its dashboard, and replace "KEY" with its key
-const ALCHEMY_API_KEY = "rfF45aXtyItXE0ia89yfK9HgxaYKuE_O";
+const ALCHEMY_API_KEY = "ALCHEMY_API_KEY";
 
 // Replace this private key with your Ropsten account private key
 // To export your private key from Metamask, open Metamask and
