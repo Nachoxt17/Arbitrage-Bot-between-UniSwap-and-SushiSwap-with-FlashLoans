@@ -1,6 +1,9 @@
 +-YOU NEED TO MODIFICATE THE "index.js" FILE IN A WAY THAT IT MONITORS THE DIFFERENT PRICES OF THE SAME TOKENS IN DIFFERENT DECENTRALIZED EXCHANGES SO IT TRIGGERS THE "ArbitrageFlashLoaner.sol" S.C. AND PERFORMS THE ARBITRAGE TRADE AUTOMATICALLY.
 
-+-For Testing the Successful working of Both the "index.js" Bot and the S.C. you should Test them in the Ropsten Ethereum TestNet, and set both your Infura and Alchemy A.P.I.s keys in that way.
++-For Testing the Successful working the "index.js" you should Test it with the S.C. Deployed in the Ropsten Ethereum TestNet:\_
+https://ropsten.etherscan.io/address/0x455835f93a2eab153b5f5d6f387c49aaa8ab9007
+
++You can get Ropsten Test Ether Here:\_ https://faucet.metamask.io
 
 +-Arbitrage Tutorials:\_ https://blog.infura.io/build-a-flash-loan-arbitrage-bot-on-infura-part-i/
 https://blog.infura.io/build-a-flash-loan-arbitrage-bot-on-infura-part-ii/
@@ -14,7 +17,7 @@ dependencies:
 npm install
 ```
 
-+-(2-A)-Once installed, open a 1st Terminal and let's run Ropsten Ethereum Test Network(https://hardhat.org/tutorial/deploying-to-a-live-network.html):_
++-(2-A)-Once installed, open a 1st Terminal and let's run Ropsten Ethereum Test Network(https://hardhat.org/tutorial/deploying-to-a-live-network.html):\_
 
 ```sh
 npx hardhat run scripts/deploy.js --network ropsten
@@ -27,11 +30,10 @@ https://hardhat.org/guides/mainnet-forking.html
 npx hardhat node
 ```
 
-+-(3)-Then, on a 2nd Terminal, go to the repository's root folder and run this to
-deploy your contract:
++-(3)-Then, you can run this to Test the Script "index.js" part of the Bot:\_
 
 ```sh
-npx hardhat run scripts/deploy.js --network localhost
+npm run start
 ```
 
 > Note: There's [an issue in `ganache-core`](https://github.com/trufflesuite/ganache-core/issues/650) that can make the `npm install` step fail.
