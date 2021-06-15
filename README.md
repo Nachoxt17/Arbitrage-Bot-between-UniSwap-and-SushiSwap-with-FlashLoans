@@ -1,6 +1,6 @@
 +-YOU NEED TO MODIFICATE THE "index.js" FILE IN A WAY THAT IT MONITORS THE DIFFERENT PRICES OF THE SAME TOKENS IN DIFFERENT DECENTRALIZED EXCHANGES SO IT TRIGGERS THE "ArbitrageFlashLoaner.sol" S.C. AND PERFORMS THE ARBITRAGE TRADE AUTOMATICALLY.
 
-+-For Testing the Successful working the "index.js" you should Test it with the S.C. Deployed in the Ropsten Ethereum TestNet:\_
++-For Testing the Successful working the "index.js" you should Test it with the S.C. Deployed and Verified in the Ropsten Ethereum TestNet:\_
 https://ropsten.etherscan.io/address/0x455835f93a2eab153b5f5d6f387c49aaa8ab9007
 
 +You can get Ropsten Test Ether Here:\_ https://faucet.metamask.io
