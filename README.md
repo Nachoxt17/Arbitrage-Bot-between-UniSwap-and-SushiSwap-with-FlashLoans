@@ -3,7 +3,10 @@
 +-For Testing the Successful working the "index.js" you should Test it with the S.C. Deployed and Verified in the Ropsten Ethereum TestNet:\_
 https://ropsten.etherscan.io/address/0x455835f93a2eab153b5f5d6f387c49aaa8ab9007
 
-+You can get Ropsten Test Ether Here:\_ https://faucet.metamask.io
++You can get Ropsten Test Ether Here:\_
+https://faucet.dimensions.network
+https://faucet.ropsten.be
+https://faucet.metamask.io
 
 +-Arbitrage Tutorials:\_ https://blog.infura.io/build-a-flash-loan-arbitrage-bot-on-infura-part-i/
 https://blog.infura.io/build-a-flash-loan-arbitrage-bot-on-infura-part-ii/
