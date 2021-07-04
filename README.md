@@ -1,12 +1,10 @@
 +-YOU NEED TO MODIFICATE THE "index.js" FILE IN A WAY THAT IT MONITORS THE DIFFERENT PRICES OF THE SAME TOKENS IN DIFFERENT DECENTRALIZED EXCHANGES SO IT TRIGGERS THE "ArbitrageFlashLoaner.sol" S.C. AND PERFORMS THE ARBITRAGE TRADE AUTOMATICALLY.
 
-+-For Testing the Successful working the "index.js" you should Test it with the S.C. Deployed and Verified in the Ropsten Ethereum TestNet:\_
++-For Testing the Successfully working "index.js" (when you have it) you should Test it with the S.C. Deployed and Verified in the Ropsten Ethereum TestNet:\_
 https://ropsten.etherscan.io/address/0x455835f93a2eab153b5f5d6f387c49aaa8ab9007
 
 +You can get Ropsten Test Ether Here:\_
-https://faucet.dimensions.network
-https://faucet.ropsten.be
-https://faucet.metamask.io
+https://faucet.dimensions.network/
 
 +-Arbitrage Tutorials:\_ https://blog.infura.io/build-a-flash-loan-arbitrage-bot-on-infura-part-i/
 https://blog.infura.io/build-a-flash-loan-arbitrage-bot-on-infura-part-ii/
